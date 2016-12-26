@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11524" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="OSGroup" representedClassName="OSGroup" parentEntity="OSObject" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OSStudent" inverseName="group" inverseEntity="OSStudent" syncable="YES"/>
+    </entity>
+    <entity name="OSObject" representedClassName="OSObject" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
+    <entity name="OSStudent" representedClassName="OSStudent" parentEntity="OSObject" syncable="YES" codeGenerationType="class">
+        <attribute name="birthDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OSGroup" inverseName="students" inverseEntity="OSGroup" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="OSGroup" positionX="-180" positionY="99" width="128" height="73"/>
+        <element name="OSObject" positionX="-72" positionY="-18" width="128" height="45"/>
+        <element name="OSStudent" positionX="52" positionY="99" width="128" height="105"/>
+    </elements>
+</model>
