@@ -78,7 +78,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nMb-7O-ipu" id="N4v-wx-WC7">
-                                    <frame key="frameInset" width="375" height="88"/>
+                                    <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-lt-GVq">
@@ -142,8 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-6L-mhB">
-                                <frame key="frameInset" width="375" height="667"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-6L-mhB">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic.png" translatesAutoresizingMaskIntoConstraints="NO" id="aSl-ee-hGw">
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -209,6 +208,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yu0-8k-WbJ" secondAttribute="trailing" constant="8" id="5Ap-Pe-K4P"/>
                                     <constraint firstItem="yu0-8k-WbJ" firstAttribute="top" secondItem="aSl-ee-hGw" secondAttribute="bottom" constant="40" id="5ue-Ql-BLj"/>
                                     <constraint firstAttribute="bottom" secondItem="Bm0-9J-oAk" secondAttribute="bottom" constant="131" id="9rS-Op-OZT"/>
                                     <constraint firstItem="Bm0-9J-oAk" firstAttribute="top" secondItem="cSo-uH-yqu" secondAttribute="bottom" constant="8" id="HUR-oY-Ta9"/>

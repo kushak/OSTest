@@ -14,13 +14,11 @@
 		CE388E4C1E0F9FEB00CB453D /* OSTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE388E4A1E0F9FEB00CB453D /* OSTest.xcdatamodeld */; };
 		CE388E4E1E0F9FEB00CB453D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE388E4D1E0F9FEB00CB453D /* Assets.xcassets */; };
 		CE388E511E0F9FEB00CB453D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE388E4F1E0F9FEB00CB453D /* LaunchScreen.storyboard */; };
-		CE388E631E0FA11100CB453D /* OSGroup+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388E5F1E0FA11100CB453D /* OSGroup+CoreDataProperties.m */; };
 		CE388E661E0FA14100CB453D /* OSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388E651E0FA14100CB453D /* OSDataManager.m */; };
 		CE388E691E0FB40D00CB453D /* OSStudentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388E681E0FB40D00CB453D /* OSStudentsTVC.m */; };
 		CE388E9A1E0FCE2800CB453D /* OSStudentCellTV.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388E991E0FCE2800CB453D /* OSStudentCellTV.m */; };
 		CE388E9D1E0FCE5400CB453D /* OSStudentCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388E9C1E0FCE5400CB453D /* OSStudentCellModel.m */; };
 		CE388EA41E0FFE5B00CB453D /* OSAddStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388EA31E0FFE5B00CB453D /* OSAddStudentVC.m */; };
-		CE388EB01E10551700CB453D /* OSStudent+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE388EAE1E10551700CB453D /* OSStudent+CoreDataProperties.m */; };
 		CE388EB51E10FF7200CB453D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE388EB21E10FF7200CB453D /* 2.jpg */; };
 		CE388EB61E10FF7200CB453D /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE388EB31E10FF7200CB453D /* 1.jpg */; };
 		CE388EB71E10FF7200CB453D /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE388EB41E10FF7200CB453D /* 3.jpg */; };
@@ -39,8 +37,6 @@
 		CE388E4D1E0F9FEB00CB453D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE388E501E0F9FEB00CB453D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE388E521E0F9FEB00CB453D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE388E5E1E0FA11100CB453D /* OSGroup+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OSGroup+CoreDataProperties.h"; path = "../OSGroup+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CE388E5F1E0FA11100CB453D /* OSGroup+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OSGroup+CoreDataProperties.m"; path = "../OSGroup+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CE388E641E0FA14100CB453D /* OSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDataManager.h; sourceTree = "<group>"; };
 		CE388E651E0FA14100CB453D /* OSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDataManager.m; sourceTree = "<group>"; };
 		CE388E671E0FB40D00CB453D /* OSStudentsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSStudentsTVC.h; sourceTree = "<group>"; };
@@ -51,8 +47,6 @@
 		CE388E9C1E0FCE5400CB453D /* OSStudentCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSStudentCellModel.m; sourceTree = "<group>"; };
 		CE388EA21E0FFE5B00CB453D /* OSAddStudentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAddStudentVC.h; sourceTree = "<group>"; };
 		CE388EA31E0FFE5B00CB453D /* OSAddStudentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAddStudentVC.m; sourceTree = "<group>"; };
-		CE388EAD1E10551700CB453D /* OSStudent+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OSStudent+CoreDataProperties.h"; path = "../OSStudent+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CE388EAE1E10551700CB453D /* OSStudent+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OSStudent+CoreDataProperties.m"; path = "../OSStudent+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CE388EB21E10FF7200CB453D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		CE388EB31E10FF7200CB453D /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		CE388EB41E10FF7200CB453D /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -115,11 +109,7 @@
 		CE388E931E0FCCE500CB453D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				CE388EAD1E10551700CB453D /* OSStudent+CoreDataProperties.h */,
-				CE388EAE1E10551700CB453D /* OSStudent+CoreDataProperties.m */,
 				CE388E4A1E0F9FEB00CB453D /* OSTest.xcdatamodeld */,
-				CE388E5E1E0FA11100CB453D /* OSGroup+CoreDataProperties.h */,
-				CE388E5F1E0FA11100CB453D /* OSGroup+CoreDataProperties.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -261,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE388E461E0F9FEB00CB453D /* ViewController.m in Sources */,
-				CE388E631E0FA11100CB453D /* OSGroup+CoreDataProperties.m in Sources */,
 				CE388E691E0FB40D00CB453D /* OSStudentsTVC.m in Sources */,
 				CE388E9D1E0FCE5400CB453D /* OSStudentCellModel.m in Sources */,
 				CE388E4C1E0F9FEB00CB453D /* OSTest.xcdatamodeld in Sources */,
@@ -269,7 +258,6 @@
 				CE388E661E0FA14100CB453D /* OSDataManager.m in Sources */,
 				CE388EA41E0FFE5B00CB453D /* OSAddStudentVC.m in Sources */,
 				CE388E431E0F9FEB00CB453D /* AppDelegate.m in Sources */,
-				CE388EB01E10551700CB453D /* OSStudent+CoreDataProperties.m in Sources */,
 				CE388E401E0F9FEB00CB453D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
