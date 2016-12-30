@@ -72,16 +72,16 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
+    OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
     if(indexPath.row == self.students.count) {
-        OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
+//        OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
         vc.groupName = self.groupName;
-        [self.navigationController pushViewController:vc animated:YES];
-    } /* else {
+//        [self.navigationController pushViewController:vc animated:YES];
+    } else {
         vc.groupName = self.groupName;
         vc.student = self.students[indexPath.row];
     }
-    [self.navigationController pushViewController:vc animated:YES]; */
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView

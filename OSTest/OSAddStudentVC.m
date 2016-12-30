@@ -84,7 +84,11 @@
 - (IBAction)saveButtonPressed:(id)sender {
     if(![self.fullName.text isEqualToString:@""]) {
         if(self.student) {
-            
+            [self.student setValue:self.fullName.text forKey:@"fullName"];
+            [self.student setValue:self.birthDay.text forKey:@"birthDay"];
+            [self.student setValue:UIImageJPEGRepresentation(self.photo.image, 1.0) forKey:@"photo"];
+            [[OSDataManager sharedManager] saveContext];
+            [self.navigationController popViewControllerAnimated:YES];
         } else {
             [[OSDataManager sharedManager]
              addStudentOnName:self.fullName.text
