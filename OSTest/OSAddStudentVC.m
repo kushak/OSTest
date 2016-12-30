@@ -12,11 +12,10 @@
 
 @interface OSAddStudentVC ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *photo;
-@property (weak, nonatomic) IBOutlet UITextField *fullName;
-@property (weak, nonatomic) IBOutlet UITextField *birthDay;
+
 @property (weak, nonatomic) IBOutlet UILabel *warningLable;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @end
 
@@ -25,56 +24,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 550)];
+    [self registerForKeyboardNotifications];
     
     UITapGestureRecognizer* pan=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabBegin:)];
     [self.scrollView addGestureRecognizer:pan];
-    pan.cancelsTouchesInView = NO;
+    
+    self.fullName.delegate = self;
+    self.birthDay.delegate = self;
+    
+    if(self.student) {
+        self.groupName = self.groupName;
+        self.photo.image = [UIImage imageWithData:self.student.photo];
+        self.fullName.text = [self.student fullName];
+        self.birthDay.text = [self.student birthDay];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *pickedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    self.photo.image = pickedImage;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
-- (void)keyboardFrameWillChange:(NSNotification *)notification {
-    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-    CGRect newFrame = self.view.frame;
-    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
-    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
-    
-    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
-    self.scrollView.frame = newFrame;
-    
-    [UIView commitAnimations];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 -(void)tabBegin:(UITapGestureRecognizer*)pan{
     [self.view endEditing:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *pickedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.photo.image = pickedImage;
 }
 
 #pragma mark - Actions
@@ -93,28 +82,60 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 - (IBAction)saveButtonPressed:(id)sender {
-    
     if(![self.fullName.text isEqualToString:@""]) {
-        [[OSDataManager sharedManager]
-         addStudentOnName:self.fullName.text
-         onBirthDay:self.birthDay.text
-         onPhoto:UIImageJPEGRepresentation(self.photo.image, 1.0)
-         forGroup:self.groupName];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        if(self.student) {
+            
+        } else {
+            [[OSDataManager sharedManager]
+             addStudentOnName:self.fullName.text
+             onBirthDay:self.birthDay.text
+             onPhoto:UIImageJPEGRepresentation(self.photo.image, 1.0)
+             forGroup:self.groupName];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     } else {
         self.warningLable.alpha = 1;
     }
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Keyboard
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)registerForKeyboardNotifications {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
 }
-*/
+
+- (void)keyboardWasShown:(NSNotification*)aNotification {
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(50.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(50.0, 0.0, 0.0, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

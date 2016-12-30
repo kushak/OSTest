@@ -14,7 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *ipsumButton;
 @property (weak, nonatomic) IBOutlet UIButton *loreamButton;
-
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (weak, nonatomic) IBOutlet UIButton *ipsumGruopButton;
 @property (weak, nonatomic) IBOutlet UIButton *loreamGroupButton;
@@ -39,55 +38,22 @@
     [super didReceiveMemoryWarning];
 }
 
--(void) presntVCForGroup: (NSString*) groupName {
-    OSStudentsTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"students"];
-    vc.group = groupName;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//-(void) presntVCForGroup: (NSString*) groupName {
+//    OSStudentsTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"students"];
+//    vc.group = groupName;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
-#pragma mark - Actions
-- (IBAction)ipsumButtonPressed:(id)sender {
-    if(![[OSDataManager sharedManager] getGroupOnName:@"ipsum"]) {
-        [[OSDataManager sharedManager] addGroup:@"ipsum"];
-        if([[[OSDataManager sharedManager] getStudentsForGroup:@"ipsum"] count] == 0 ){
-            for (NSInteger i = 1; i <= 3 ; i++) {
-                [[OSDataManager sharedManager]
-                 addStudentOnName: [NSString stringWithFormat:@"Test Student %ld", (long)i]
-                 onBirthDay:[NSString stringWithFormat:@"%u.%u.%u", arc4random_uniform(30)+1,
-                             arc4random_uniform(12)+1, arc4random_uniform(15)+1980]
-                 onPhoto:UIImageJPEGRepresentation([UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg", (long)i]], 1.0)
-                 forGroup:@"ipsum"];
-            }
-        }
-    }
-    [self presntVCForGroup:@"ipsum"];
-}
-- (IBAction)loreamButtonPressed:(id)sender {
-    if(![[OSDataManager sharedManager] getGroupOnName:@"loream"]) {
-        [[OSDataManager sharedManager] addGroup:@"loream"];
-        if([[[OSDataManager sharedManager] getStudentsForGroup:@"loream"] count] == 0 ){
-            for (NSInteger i = 1; i <= 3 ; i++) {
-                [[OSDataManager sharedManager]
-                 addStudentOnName: [NSString stringWithFormat:@"Student Test %ld", (long)(i + 3)]
-                 onBirthDay:[NSString stringWithFormat:@"%u.%u.%u", arc4random_uniform(30)+1,
-                             arc4random_uniform(12)+1, arc4random_uniform(15)+1980]
-                 onPhoto:UIImageJPEGRepresentation([UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg", (long)i]], 1.0)
-                 forGroup:@"loream"];
-            }
-        }
-    }
-    [self presntVCForGroup:@"loream"];
-}
+#pragma mark - Segues
 
-
--(NSManagedObjectContext*) context {
-    if(!_context) {
-        _context = [[[OSDataManager sharedManager] persistentContainer] viewContext];
-    }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    return _context;
+    OSStudentsTVC *vc = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"ipsum"]) {
+        vc.groupName = @"ipsum";
+    } else if ([segue.identifier isEqualToString:@"loream"]) {
+        vc.groupName = @"loream";
+    }
 }
-
-
 
 @end

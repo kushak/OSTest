@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"Студенты"];
+    [self setTitle:self.groupName];
     [self reloadData];
 }
 
@@ -30,7 +30,7 @@
 }
 
 -(void) reloadData {
-    self.students = [NSMutableArray arrayWithArray:[[OSDataManager sharedManager] getStudentsForGroup:self.group]];
+    self.students = [NSMutableArray arrayWithArray:[[OSDataManager sharedManager] getStudentsForGroup:self.groupName]];
     [self.tableView reloadData];
 }
 
@@ -67,22 +67,26 @@
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
     if(indexPath.row == self.students.count) {
         OSAddStudentVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
-        vc.groupName = self.group;
+        vc.groupName = self.groupName;
         [self.navigationController pushViewController:vc animated:YES];
+    } /* else {
+        vc.groupName = self.groupName;
+        vc.student = self.students[indexPath.row];
     }
+    [self.navigationController pushViewController:vc animated:YES]; */
 }
 
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[OSDataManager sharedManager] deleteStudent:self.students[indexPath.row]];
         [self.students removeObjectAtIndex:indexPath.row];
@@ -92,14 +96,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.students.count) {
         return UITableViewCellEditingStyleInsert;
     } else {
         return UITableViewCellEditingStyleDelete;
     }
 }
-
 
 @end

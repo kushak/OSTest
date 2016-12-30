@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Loream"/>
                                 <connections>
-                                    <action selector="loreamButtonPressed:" destination="35f-ez-EOg" eventType="touchUpInside" id="5v8-hB-Zdw"/>
+                                    <segue destination="5rA-VI-zj8" kind="show" identifier="loream" id="1IT-AK-bEQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-5B-9VZ">
@@ -36,7 +36,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Ipsum"/>
                                 <connections>
-                                    <action selector="ipsumButtonPressed:" destination="35f-ez-EOg" eventType="touchUpInside" id="tFL-zM-GVv"/>
+                                    <segue destination="5rA-VI-zj8" kind="show" identifier="ipsum" id="n5M-Eb-uMN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,10 +75,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="89" id="nMb-7O-ipu" customClass="OSStudentCellTV">
-                                <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nMb-7O-ipu" id="N4v-wx-WC7">
-                                    <frame key="frameInset" width="375" height="89"/>
+                                    <frame key="frameInset" width="375" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-lt-GVq">
@@ -157,7 +157,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFs-pX-4QQ">
                                         <constraints>
@@ -203,14 +203,14 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yu0-8k-WbJ" secondAttribute="trailing" constant="8" id="5Ap-Pe-K4P"/>
                                     <constraint firstItem="yu0-8k-WbJ" firstAttribute="top" secondItem="aSl-ee-hGw" secondAttribute="bottom" constant="40" id="5ue-Ql-BLj"/>
-                                    <constraint firstAttribute="bottom" secondItem="Bm0-9J-oAk" secondAttribute="bottom" constant="131" id="9rS-Op-OZT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bm0-9J-oAk" secondAttribute="bottom" constant="50" id="9rS-Op-OZT"/>
                                     <constraint firstItem="Bm0-9J-oAk" firstAttribute="top" secondItem="cSo-uH-yqu" secondAttribute="bottom" constant="8" id="HUR-oY-Ta9"/>
                                     <constraint firstItem="cSo-uH-yqu" firstAttribute="top" secondItem="BFs-pX-4QQ" secondAttribute="bottom" constant="8" id="IAf-Pj-BTy"/>
                                     <constraint firstItem="Bm0-9J-oAk" firstAttribute="centerX" secondItem="IEO-6L-mhB" secondAttribute="centerX" id="IW3-pz-3uv"/>
@@ -240,14 +240,15 @@
                     <connections>
                         <outlet property="birthDay" destination="xNK-mI-WNa" id="TH6-b8-7Ow"/>
                         <outlet property="fullName" destination="yu0-8k-WbJ" id="Mhn-6B-A3h"/>
-                        <outlet property="photo" destination="aSl-ee-hGw" id="1UR-y4-d9U"/>
+                        <outlet property="photo" destination="aSl-ee-hGw" id="Fzw-9M-eXP"/>
+                        <outlet property="saveButton" destination="Bm0-9J-oAk" id="q9O-AR-Pa8"/>
                         <outlet property="scrollView" destination="IEO-6L-mhB" id="hh6-hz-iqh"/>
                         <outlet property="warningLable" destination="Dd1-gv-lgk" id="ZDa-D9-0Fe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebf-IK-Vc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3634.4000000000001" y="152.47376311844079"/>
+            <point key="canvasLocation" x="3633" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cdc-y2-4CZ">
@@ -271,4 +272,7 @@
     <resources>
         <image name="userpic.png" width="298" height="298"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="n5M-Eb-uMN"/>
+    </inferredMetricsTieBreakers>
 </document>

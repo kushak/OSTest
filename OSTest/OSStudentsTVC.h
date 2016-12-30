@@ -15,6 +15,6 @@
 @property (strong, nonatomic) NSFetchedResultsController<OSStudent *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) NSMutableArray* students;
-@property (strong, nonatomic) NSString* group;
+@property (strong, nonatomic) NSString* groupName;
 
 @end
