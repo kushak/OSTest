@@ -43,6 +43,7 @@
     
     NSArray* groups = [self.persistentContainer.viewContext executeFetchRequest:request error:nil];
     for (OSGroup* group in groups) {
+        
         if([group.name isEqualToString:groupName]) {
             student.group = group;
         }

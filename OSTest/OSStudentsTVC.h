@@ -12,7 +12,7 @@
 
 @interface OSStudentsTVC : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController<OSStudent *> *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController<OSStudent *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) NSMutableArray* students;
 @property (strong, nonatomic) NSString* groupName;

@@ -20,37 +20,7 @@
 //    [[OSDataManager sharedManager] deleteAllObjects];
     
     [[OSDataManager sharedManager] printAllObjects];
-    
-//    [self addTestStudents];
-    
-    
-    // Override point for customization after application launch.
     return YES;
-}
-
--(void) addTestStudents {
-    if([[[OSDataManager sharedManager] getStudentsForGroup:@"ipsum"] count] == 0 ){
-        for (NSInteger i = 1; i <= 3 ; i++) {
-            [[OSDataManager sharedManager]
-             addStudentOnName: [NSString stringWithFormat:@"Test Student %ld", (long)i]
-             onBirthDay:[NSString stringWithFormat:@"%u.%u.%u", arc4random_uniform(30)+1,
-                         arc4random_uniform(12)+1, arc4random_uniform(15)+1980]
-             onPhoto:UIImageJPEGRepresentation([UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg", (long)i]], 1.0)
-             forGroup:@"ipsum"];
-        }
-    }
-    
-    if([[[OSDataManager sharedManager] getStudentsForGroup:@"loream"] count] == 0 ){
-        for (NSInteger i = 1; i <= 3 ; i++) {
-            [[OSDataManager sharedManager]
-             addStudentOnName: [NSString stringWithFormat:@"Student Test %ld", (long)(i + 3)]
-             onBirthDay:[NSString stringWithFormat:@"%u.%u.%u", arc4random_uniform(30)+1,
-                         arc4random_uniform(12)+1, arc4random_uniform(15)+1980]
-             onPhoto:UIImageJPEGRepresentation([UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg", (long)i]], 1.0)
-             forGroup:@"loream"];
-        }
-    }
-    
 }
 
 
